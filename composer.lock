@@ -7980,7 +7980,7 @@
             "dist": {
                 "type": "path",
                 "url": "../laravel-tiptap",
-                "reference": "b6a47fab1115bc24b54c2ad3ceb69f53e67868e3"
+                "reference": "4556115f015f05cacede418c5220d5e3e40bf3c4"
             },
             "require": {
                 "illuminate/support": "^9.0",
