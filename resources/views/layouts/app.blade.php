@@ -9,7 +9,7 @@
         <title>{{ config(key: 'app.name') }}</title>
     </head>
 
-    <body class="antialiased">
+    <body class="antialiased" style="background: deeppink;">
         <div class="container mx-auto my-14 py-4">
             {{ $slot }}
         </div>
