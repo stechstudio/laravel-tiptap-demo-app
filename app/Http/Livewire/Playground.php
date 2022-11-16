@@ -7,12 +7,12 @@ namespace App\Http\Livewire;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
-class TextArea extends Component
+class Playground extends Component
 {
     public string $message = '';
 
     public function render(): View
     {
-        return view(view: 'livewire.text-area');
+        return view(view: 'livewire.playground');
     }
 }

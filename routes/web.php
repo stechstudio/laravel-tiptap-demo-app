@@ -2,11 +2,9 @@
 
 declare(strict_types=1);
 
-use App\Http\Livewire\TextArea;
+use App\Http\Livewire\Playground;
 use Illuminate\Support\Facades\Route;
 
-Route::get(uri: '/', action: function () {
-    return view(view: 'welcome');
-});
+Route::redirect(uri: '/', destination: '/playground');
 
-Route::get(uri: '/playground', action: TextArea::class);
+Route::get(uri: '/playground', action: Playground::class);
