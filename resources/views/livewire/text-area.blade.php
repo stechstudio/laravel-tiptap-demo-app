@@ -1,3 +1,3 @@
 <div>
-    <x-tiptap::editor id="body" name="body" wire:ignore wire:model="body" />
+    <x-tiptap::editor wire:ignore wire:model="message" id="body" name="body"></x-tiptap::editor>
 </div>
