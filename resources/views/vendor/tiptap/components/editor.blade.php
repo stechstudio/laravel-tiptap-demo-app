@@ -51,12 +51,7 @@
 @endphp
 
 <div
-    x-data="{
-        open: false,
-        setColor: (color) => window.tiptap.chain().focus().setColor(color).run(),
-        ...setupEditor(@entangle($attributes->wire('model')).defer),
-    }"
-    x-init="() => init($refs.editor);"
+    x-data="TipTapEditor"
     {{ $attributes->whereDoesntStartWith('wire:model') }}
 >
     <div x-cloak>
@@ -193,4 +188,6 @@
 
         <div x-ref="editor"></div>
     </div>
+
+    <script src="{{ asset('js/main.js') }}"></script>
 </div>
