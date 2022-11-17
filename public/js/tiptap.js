@@ -12,6 +12,8 @@ document.addEventListener("alpine:init", () => {
 
         updatedAt: Date.now(),
 
+        isActive: ($markName) => window.tiptap.isActive($markName),
+
         init(element) {
             window.tiptap = new Editor({
                 element: this.$refs.editor,
@@ -114,5 +116,7 @@ document.addEventListener("alpine:init", () => {
 
             return window.tiptap;
         },
+
+        setColor: (color) => window.tiptap.chain().focus().setColor(color).run(),
     }));
 });

@@ -50,6 +50,7 @@
     ];
 @endphp
 
+<!--suppress JSValidateTypes, JSUnresolvedFunction, JSUnresolvedVariable -->
 <div
     x-data="TipTapEditor"
     {{ $attributes->whereDoesntStartWith('wire:model') }}
@@ -58,7 +59,7 @@
         <div class="bg-gray-100 rounded flex justify-between items-stretch mb-1 p-1">
             <div class="ProseMirror-toolbar flex items-center space-x-1">
                 <button
-                    x-on:click="window.tiptap.chain().focus().toggleHeading({ level: 3 }).run()"
+                    @click="window.tiptap.chain().focus().toggleHeading({ level: 3 }).run()"
                     :class="(isActive('heading', updatedAt)) ? 'bg-gray-500 focus:bg-gray-400 hover:bg-gray-400 text-white' : 'focus:bg-gray-300 hover:bg-gray-300 text-gray-600'"
                     type="button"
                     class="text-sm rounded-sm"
@@ -67,7 +68,7 @@
                 </button>
 
                 <button
-                    x-on:click="window.tiptap.chain().focus().toggleBold().run()"
+                    @click="window.tiptap.chain().focus().toggleBold().run()"
                     :class="(isActive('bold', updatedAt)) ? 'bg-gray-500 focus:bg-gray-400 hover:bg-gray-400 text-white' : 'focus:bg-gray-300 hover:bg-gray-300 text-gray-600'"
                     type="button"
                     class="text-sm rounded-sm"
@@ -76,7 +77,7 @@
                 </button>
 
                 <button
-                    x-on:click="window.tiptap.chain().focus().toggleItalic().run()"
+                    @click="window.tiptap.chain().focus().toggleItalic().run()"
                     :class="(isActive('italic', updatedAt)) ? 'bg-gray-500 focus:bg-gray-400 hover:bg-gray-400 text-white' : 'focus:bg-gray-300 hover:bg-gray-300 text-gray-600'"
                     type="button"
                     class="text-sm rounded-sm"
@@ -86,47 +87,53 @@
 
                 <!-- @todo: replace -->
                 <div class="relative inline-block text-left">
-                    <div>
-                        <button @click.prevent="open = ! open" type="button" class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100" id="menu-button" aria-expanded="true" aria-haspopup="true">
-                            <x-far-palette class="w-5 h-5 px-1.5 py-1" />
-                        </button>
-                    </div>
-
                     <x-tiptap::dropdown :rightAlign="false">
                         <x-slot name="trigger">
-                            <button
-                                type="button"
-                                class="text-sm rounded-sm"
-                                :class="(isActive('textStyle', updatedAt)) ? 'bg-gray-500 focus:bg-gray-400 hover:bg-gray-400 text-white' : 'focus:bg-gray-300 hover:bg-gray-300 text-gray-600'"
+                            <div
+                                @click="setColor('#999999')"
+                                class="w-6 h-6 flex-shrink-0 border border-transparent hover:border-gray-500 cursor-pointer p-px"
                             >
-                                <i class="px-1.5 py-1 far fa-palette" x-on:click.prevent="open = !open"></i>
-                            </button>
+                                <div class="w-full h-full" style="background-color: #999999"></div>
+                            </div>
                         </x-slot>
+
                         <div class="bg-white p-4 rounded shadow space-y-2">
                             <div class="flex justify-between">
-                                <div class="flex-grow h-6 border border-transparent hover:border-gray-500 cursor-pointer p-px"
-                                     x-on:click="window.tiptap.chain().focus().unsetColor().run()">
+                                <div
+                                    @click="window.tiptap.chain().focus().unsetColor().run()"
+                                    class="flex-grow h-6 border border-transparent hover:border-gray-500 cursor-pointer p-px"
+                                >
                                     <div class="w-full h-full" style="background-color: #000"></div>
                                 </div>
-                                <div class="w-6 h-6 flex-shrink-0 border border-transparent hover:border-gray-500 cursor-pointer p-px"
-                                     x-on:click="setColor('#444444')">
+
+                                <div
+                                    @click="setColor('#444444')"
+                                    class="w-6 h-6 flex-shrink-0 border border-transparent hover:border-gray-500 cursor-pointer p-px"
+                                >
                                     <div class="w-full h-full" style="background-color: #444444"></div>
                                 </div>
-                                <div class="w-6 h-6 flex-shrink-0 border border-transparent hover:border-gray-500 cursor-pointer p-px"
-                                     x-on:click="setColor('#666666')">
+
+                                <div
+                                    @click="setColor('#666666')"
+                                    class="w-6 h-6 flex-shrink-0 border border-transparent hover:border-gray-500 cursor-pointer p-px"
+                                >
                                     <div class="w-full h-full" style="background-color: #666666"></div>
                                 </div>
-                                <div class="w-6 h-6 flex-shrink-0 border border-transparent hover:border-gray-500 cursor-pointer p-px"
-                                     x-on:click="setColor('#999999')">
+
+                                <div
+                                    @click="setColor('#999999')"
+                                    class="w-6 h-6 flex-shrink-0 border border-transparent hover:border-gray-500 cursor-pointer p-px"
+                                >
                                     <div class="w-full h-full" style="background-color: #999999"></div>
                                 </div>
                             </div>
+
                             @foreach($colors AS $group)
                                 <div class="flex flex-wrap justify-between">
                                     @foreach($group AS $color)
                                         <div class="w-6 h-6 flex-shrink-0 border border-transparent hover:border-gray-500 cursor-pointer p-px"
-                                             x-on:click="setColor('#{{ $color }}')">
-                                            <div class="w-full h-full" style="background-color: #{{ $color }}"></div>
+                                             @click="setColor('#{{ $color }}')">
+                                            <div class="w-full h-full" style="background-color: {{ '#' . $color }}"></div>
                                         </div>
                                     @endforeach
                                 </div>
@@ -139,49 +146,49 @@
 
                 <button
                     :class="(isActive('link', updatedAt)) ? 'bg-gray-500 focus:bg-gray-400 hover:bg-gray-400 text-white' : 'focus:bg-gray-300 hover:bg-gray-300 text-gray-600'"
-                    x-on:click="setLink()"
+                    @click="setLink()"
                     type="button"
                     class="text-sm rounded-sm"
                 >
-                    <x-far-link x-on:click.prevent="open = ! open" class="w-5 h-5 px-1.5 py-1" />
+                    <x-far-link @click.prevent="open = ! open" class="w-5 h-5 px-1.5 py-1" />
                 </button>
 
                 <button
-                    x-on:click="window.tiptap.chain().focus().toggleBulletList().run()"
+                    @click="window.tiptap.chain().focus().toggleBulletList().run()"
                     :class="(isActive('bulletList', updatedAt)) ? 'bg-gray-500 focus:bg-gray-400 hover:bg-gray-400 text-white' : 'focus:bg-gray-300 hover:bg-gray-300 text-gray-600'"
                     type="button"
                     class="text-sm rounded-sm"
                 >
-                    <x-far-list-ul x-on:click.prevent="open = ! open" class="w-5 h-5 px-1.5 py-1" />
+                    <x-far-list-ul @click.prevent="open = ! open" class="w-5 h-5 px-1.5 py-1" />
                 </button>
 
                 <button
-                    x-on:click="window.tiptap.chain().focus().toggleOrderedList().run()"
+                    @click="window.tiptap.chain().focus().toggleOrderedList().run()"
                     :class="(isActive('orderedList', updatedAt)) ? 'bg-gray-500 focus:bg-gray-400 hover:bg-gray-400 text-white' : 'focus:bg-gray-300 hover:bg-gray-300 text-gray-600'"
                     type="button"
                     class="text-sm rounded-sm"
                 >
-                    <x-far-list-ol x-on:click.prevent="open = ! open" class="w-5 h-5 px-1.5 py-1" />
+                    <x-far-list-ol @click.prevent="open = ! open" class="w-5 h-5 px-1.5 py-1" />
                 </button>
             </div>
 
             <div class="ProseMirror-toolbar flex items-center space-x-1">
                 <button
-                    x-on:click="window.tiptap.chain().focus().undo().run()"
-                    x-bind:disabled="! canUndo"
+                    @click="window.tiptap.chain().focus().undo().run()"
+                    :disabled="! canUndo"
                     type="button"
                     class="text-sm rounded-sm text-gray-600 focus:bg-gray-300 hover:bg-gray-300 disabled:opacity-25 disabled:cursor-default"
                 >
-                    <x-far-rotate-left x-on:click.prevent="open = ! open" class="w-5 h-5 px-1.5 py-1" />
+                    <x-far-rotate-left @click.prevent="open = ! open" class="w-5 h-5 px-1.5 py-1" />
                 </button>
 
                 <button
-                    x-on:click="window.tiptap.chain().focus().redo().run()"
-                    x-bind:disabled="! canRedo"
+                    @click="window.tiptap.chain().focus().redo().run()"
+                    :disabled="! canRedo"
                     type="button"
                     class="text-sm rounded-sm text-gray-600 focus:bg-gray-300 hover:bg-gray-300 disabled:opacity-25 disabled:cursor-default"
                 >
-                    <x-far-rotate-right x-on:click.prevent="open = ! open" class="w-5 h-5 px-1.5 py-1" />
+                    <x-far-rotate-right @click.prevent="open = ! open" class="w-5 h-5 px-1.5 py-1" />
                 </button>
             </div>
         </div>
@@ -189,5 +196,5 @@
         <div x-ref="editor"></div>
     </div>
 
-    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/tiptap.js') }}"></script>
 </div>
