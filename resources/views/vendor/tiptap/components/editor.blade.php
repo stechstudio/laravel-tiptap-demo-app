@@ -90,11 +90,13 @@
                     <x-tiptap::dropdown :rightAlign="false">
                         <x-slot name="trigger">
                             <div
-                                @click="setColor('#999999')"
-                                class="w-6 h-6 flex-shrink-0 border border-transparent hover:border-gray-500 cursor-pointer p-px"
+                                @click="setColor('#666666')"
+                                :class="(isActive('textStyle', updatedAt)) ? 'bg-gray-500 focus:bg-gray-400 hover:bg-gray-400 text-white' : 'focus:bg-gray-300 hover:bg-gray-300 text-gray-600'"
+                                class="flex-grow h-8 border border-transparent hover:border-gray-500 cursor-pointer p-px"
                             >
-                                <div class="w-full h-full" style="background-color: #999999"></div>
+                                <x-far-palette @click="open = ! open" class="w-5 h-6 px-1.5 py-1" />
                             </div>
+                            </button>
                         </x-slot>
 
                         <div class="bg-white p-4 rounded shadow space-y-2">
