@@ -20,7 +20,7 @@
                     type="button"
                     class="text-sm rounded-sm"
                 >
-                    <x-far-heading class="w-5 h-5 px-1.5 py-1" />
+                    <x-far-heading class="w-6 h-6 px-1.5 py-1" />
                 </button>
 
                 <button
@@ -29,7 +29,7 @@
                     type="button"
                     class="text-sm rounded-sm"
                 >
-                    <x-far-bold class="w-5 h-5 px-1.5 py-1" />
+                    <x-far-bold class="w-6 h-6 px-1.5 py-1" />
                 </button>
 
                 <button
@@ -38,7 +38,7 @@
                     type="button"
                     class="text-sm rounded-sm"
                 >
-                    <x-far-italic class="w-5 h-5 px-1.5 py-1" />
+                    <x-far-italic class="w-6 h-6 px-1.5 py-1" />
                 </button>
 
                 <div class="relative inline-block text-left">
@@ -49,7 +49,7 @@
                                 :class="(isActive('textStyle', updatedAt)) ? 'bg-gray-500 focus:bg-gray-400 hover:bg-gray-400 text-white' : 'focus:bg-gray-300 hover:bg-gray-300 text-gray-600'"
                                 class="flex-grow h-8 border border-transparent hover:border-gray-500 cursor-pointer p-px"
                             >
-                                <x-far-palette @click="open = ! open" class="w-5 h-6 px-1.5 py-1" />
+                                <x-far-palette @click="open = ! open" class="w-6 h-6 px-1.5 py-1" />
                             </div>
                         </x-slot>
 
@@ -85,7 +85,7 @@
                     type="button"
                     class="text-sm rounded-sm"
                 >
-                    <x-far-link @click.prevent="open = ! open" class="w-5 h-5 px-1.5 py-1" />
+                    <x-far-link @click.prevent="open = ! open" class="w-6 h-6 px-1.5 py-1" />
                 </button>
 
                 <button
@@ -94,7 +94,7 @@
                     type="button"
                     class="text-sm rounded-sm"
                 >
-                    <x-far-list-ul @click.prevent="open = ! open" class="w-5 h-5 px-1.5 py-1" />
+                    <x-far-list-ul @click.prevent="open = ! open" class="w-6 h-6 px-1.5 py-1" />
                 </button>
 
                 <button
@@ -103,7 +103,7 @@
                     type="button"
                     class="text-sm rounded-sm"
                 >
-                    <x-far-list-ol @click.prevent="open = ! open" class="w-5 h-5 px-1.5 py-1" />
+                    <x-far-list-ol @click.prevent="open = ! open" class="w-6 h-6 px-1.5 py-1" />
                 </button>
             </div>
 
@@ -114,7 +114,7 @@
                     type="button"
                     class="text-sm rounded-sm text-gray-600 focus:bg-gray-300 hover:bg-gray-300 disabled:opacity-25 disabled:cursor-default"
                 >
-                    <x-far-rotate-left @click.prevent="open = ! open" class="w-5 h-5 px-1.5 py-1" />
+                    <x-far-rotate-left @click.prevent="open = ! open" class="w-6 h-6 px-1.5 py-1" />
                 </button>
 
                 <button
@@ -123,7 +123,7 @@
                     type="button"
                     class="text-sm rounded-sm text-gray-600 focus:bg-gray-300 hover:bg-gray-300 disabled:opacity-25 disabled:cursor-default"
                 >
-                    <x-far-rotate-right @click.prevent="open = ! open" class="w-5 h-5 px-1.5 py-1" />
+                    <x-far-rotate-right @click.prevent="open = ! open" class="w-6 h-6 px-1.5 py-1" />
                 </button>
             </div>
         </div>
@@ -131,5 +131,6 @@
         <div x-ref="editor"></div>
     </div>
 
+    <link rel="stylesheet" href="{{ asset('css/prosemirror.css') }}">
     <script src="{{ asset('js/tiptap.js') }}"></script>
 </div>
