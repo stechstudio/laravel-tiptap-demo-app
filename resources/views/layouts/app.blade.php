@@ -11,7 +11,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
 
-    <body class="antialiased" style="background: deeppink;">
+    <body class="antialiased" style="background: lightgray;">
         <div class="container mx-auto my-14 py-4">
             {{ $slot }}
         </div>
