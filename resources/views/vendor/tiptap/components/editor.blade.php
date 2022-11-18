@@ -13,14 +13,14 @@
 >
     <div x-cloak>
         <div class="bg-gray-100 rounded flex justify-between items-stretch mb-1 p-1">
-            <div class="ProseMirror-toolbar flex items-center space-x-1">
+            <div class="ProseMirror-toolbar flex items-center space-x-2">
                 <button
                     @click="window.tiptap.chain().focus().toggleHeading({ level: 3 }).run()"
                     :class="(isActive('heading', updatedAt)) ? 'bg-gray-500 focus:bg-gray-400 hover:bg-gray-400 text-white' : 'focus:bg-gray-300 hover:bg-gray-300 text-gray-600'"
                     type="button"
                     class="text-sm rounded-sm"
                 >
-                    <x-far-heading class="w-6 h-6 px-1.5 py-1" />
+                    <x-far-heading class="w-7 h-7 px-1.5 py-1" />
                 </button>
 
                 <button
@@ -29,7 +29,7 @@
                     type="button"
                     class="text-sm rounded-sm"
                 >
-                    <x-far-bold class="w-6 h-6 px-1.5 py-1" />
+                    <x-far-bold class="w-7 h-7 px-1.5 py-1" />
                 </button>
 
                 <button
@@ -38,29 +38,29 @@
                     type="button"
                     class="text-sm rounded-sm"
                 >
-                    <x-far-italic class="w-6 h-6 px-1.5 py-1" />
+                    <x-far-italic class="w-7 h-7 px-1.5 py-1" />
                 </button>
 
-                <div class="relative inline-block text-left">
+                <div>
                     <x-tiptap::dropdown :rightAlign="false">
                         <x-slot name="trigger">
-                            <div
+                            <button
                                 @click="setColor('#666666')"
-                                :class="(isActive('textStyle', updatedAt)) ? 'bg-gray-500 focus:bg-gray-400 hover:bg-gray-400 text-white' : 'focus:bg-gray-300 hover:bg-gray-300 text-gray-600'"
-                                class="flex-grow h-8 border border-transparent hover:border-gray-500 cursor-pointer p-px"
+                                type="button"
+                                class="text-sm rounded-sm focus:bg-gray-300 hover:bg-gray-300 text-gray-600"
                             >
-                                <x-far-palette @click="open = ! open" class="w-6 h-6 px-1.5 py-1" />
-                            </div>
+                                <x-far-palette @click="open = ! open" class="w-7 h-7 px-1.5 py-1" />
+                            </button>
                         </x-slot>
 
                         <div class="bg-white p-4 rounded shadow space-y-2">
                             <div class="flex justify-between">
-                                <x-toolbar-icon color="#000" />
-                                <x-toolbar-icon color="#444" />
-                                <x-toolbar-icon color="#444" />
-                                <x-toolbar-icon color="#666" />
-                                <x-toolbar-icon color="#666" />
-                                <x-toolbar-icon color="#999" />
+                                <x-color-palette-icon color="#000" />
+                                <x-color-palette-icon color="#444" />
+                                <x-color-palette-icon color="#444" />
+                                <x-color-palette-icon color="#666" />
+                                <x-color-palette-icon color="#666" />
+                                <x-color-palette-icon color="#999" />
                             </div>
 
                             <div class="flex flex-wrap justify-between">
@@ -85,7 +85,7 @@
                     type="button"
                     class="text-sm rounded-sm"
                 >
-                    <x-far-link @click.prevent="open = ! open" class="w-6 h-6 px-1.5 py-1" />
+                    <x-far-link @click.prevent="open = ! open" class="w-7 h-7 px-1.5 py-1" />
                 </button>
 
                 <button
@@ -94,7 +94,7 @@
                     type="button"
                     class="text-sm rounded-sm"
                 >
-                    <x-far-list-ul @click.prevent="open = ! open" class="w-6 h-6 px-1.5 py-1" />
+                    <x-far-list-ul @click.prevent="open = ! open" class="w-7 h-7 px-1.5 py-1" />
                 </button>
 
                 <button
@@ -103,7 +103,7 @@
                     type="button"
                     class="text-sm rounded-sm"
                 >
-                    <x-far-list-ol @click.prevent="open = ! open" class="w-6 h-6 px-1.5 py-1" />
+                    <x-far-list-ol @click.prevent="open = ! open" class="w-7 h-7 px-1.5 py-1" />
                 </button>
             </div>
 
@@ -114,7 +114,7 @@
                     type="button"
                     class="text-sm rounded-sm text-gray-600 focus:bg-gray-300 hover:bg-gray-300 disabled:opacity-25 disabled:cursor-default"
                 >
-                    <x-far-rotate-left @click.prevent="open = ! open" class="w-6 h-6 px-1.5 py-1" />
+                    <x-far-rotate-left @click.prevent="open = ! open" class="w-7 h-7 px-1.5 py-1" />
                 </button>
 
                 <button
@@ -123,7 +123,7 @@
                     type="button"
                     class="text-sm rounded-sm text-gray-600 focus:bg-gray-300 hover:bg-gray-300 disabled:opacity-25 disabled:cursor-default"
                 >
-                    <x-far-rotate-right @click.prevent="open = ! open" class="w-6 h-6 px-1.5 py-1" />
+                    <x-far-rotate-right @click.prevent="open = ! open" class="w-7 h-7 px-1.5 py-1" />
                 </button>
             </div>
         </div>

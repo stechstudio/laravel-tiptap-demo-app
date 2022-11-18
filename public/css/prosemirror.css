@@ -1,6 +1,4 @@
 .ProseMirror {
-    @apply border border-gray-300 p-4 rounded;
-
     min-height: 16rem;
 
     a {

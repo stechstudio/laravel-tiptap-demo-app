@@ -2,9 +2,11 @@
     'color',
 ])
 
-<div
+
+<button
     @click="window.tiptap.chain().focus().unsetColor().run()"
-    class="w-6 h-6 cursor-pointer"
+    type="button"
+    class="text-sm rounded-sm"
 >
     <div class="w-full h-full" style="background-color: {{ $color }}"></div>
-</div>
+</button>
